@@ -1,0 +1,42 @@
+<div class="testbox" >
+  <form action="/" style="width: 960px; margin: auto;">
+    <div class="banner">
+      <h1>Cambio de Divisas</h1>
+      
+
+    </div>
+    <br>
+    <div class="columns">
+      <label for="" style="font-weight: 700;">Selecciona la divisa a cambiar : </label>
+      <select (change) ="limpiar()" name="miselect" [(ngModel)]="seleccionado">
+        <option [value]="item.id" *ngFor="let item of listDivisas">{{item.id}}</option>
+        </select>
+    </div>
+    <div class="colums">
+    
+      <div class="item">
+        <label for="fname"> Euro € <span>*</span></label>
+        <input id="fname"  maxlength="10" class="inpt" (keypress)="numericOnly($event)" [(ngModel)] ="this.euro" type="number" name="fname" required/>
+        <!--<label>{{time}}</label>-->
+      </div>
+      <div class="item">
+        <label for="lname"> {{this.seleccionado}}</label>
+        
+      
+        <input id="lname" class="inpt"  disabled [(ngModel)] ="this.dolar" type="text" name="lname" required/>
+        
+      
+      </div>
+     
+    </div>
+    <div class="btn-block">
+      <button (click)="calcular()" type="submit">Enviar</button>
+    </div>
+  </form>
+</div>
+
+
+
+
+
+<router-outlet></router-outlet>
